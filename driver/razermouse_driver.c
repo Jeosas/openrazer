@@ -88,6 +88,7 @@ static int razer_get_report(struct usb_device *usb_dev, struct razer_report *req
 
     case USB_DEVICE_ID_RAZER_NAGA_X:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
         index = 0x03;
         return razer_get_usb_response(usb_dev, index, request, index, response, RAZER_MOUSE_WAIT_MIN_US, RAZER_MOUSE_WAIT_MAX_US);
         break;
@@ -512,6 +513,10 @@ static ssize_t razer_attr_read_device_type(struct device *dev, struct device_att
         device_type = "Razer Basilisk V3\n";
         break;
 
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
+        device_type = "Razer Basilisk V3 35K\n";
+        break;
+
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2:
         device_type = "Razer DeathAdder V2\n";
         break;
@@ -692,6 +697,7 @@ static ssize_t razer_attr_read_firmware_version(struct device *dev, struct devic
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -852,6 +858,7 @@ static ssize_t razer_attr_write_matrix_effect_custom(struct device *dev, struct 
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
@@ -912,6 +919,7 @@ static ssize_t razer_attr_write_matrix_effect_static(struct device *dev, struct 
         break;
 
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -945,6 +953,7 @@ static ssize_t razer_attr_write_matrix_effect_wave(struct device *dev, struct de
 
     switch (device->usb_pid) {
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -982,6 +991,7 @@ static ssize_t razer_attr_write_matrix_effect_spectrum(struct device *dev, struc
         break;
 
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -1129,6 +1139,7 @@ static ssize_t razer_attr_read_device_serial(struct device *dev, struct device_a
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -1439,6 +1450,7 @@ static ssize_t razer_attr_read_poll_rate(struct device *dev, struct device_attri
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -1579,6 +1591,7 @@ static ssize_t razer_attr_write_poll_rate(struct device *dev, struct device_attr
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -1670,6 +1683,7 @@ static ssize_t razer_attr_write_matrix_brightness(struct device *dev, struct dev
     case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -1722,6 +1736,7 @@ static ssize_t razer_attr_read_matrix_brightness(struct device *dev, struct devi
     case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -1885,6 +1900,7 @@ static ssize_t razer_attr_write_dpi(struct device *dev, struct device_attribute 
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -1985,6 +2001,7 @@ static ssize_t razer_attr_read_dpi(struct device *dev, struct device_attribute *
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -2712,6 +2729,7 @@ static ssize_t razer_attr_write_matrix_custom_frame(struct device *dev, struct d
 
         case USB_DEVICE_ID_RAZER_BASILISK_V2:
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
         case USB_DEVICE_ID_RAZER_DEATHADDER_V2_LITE:
@@ -2795,6 +2813,7 @@ static ssize_t razer_attr_write_device_mode(struct device *dev, struct device_at
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_DEATHADDER_V2_X_HYPERSPEED:
@@ -2899,6 +2918,7 @@ static ssize_t razer_attr_read_device_mode(struct device *dev, struct device_att
     case USB_DEVICE_ID_RAZER_OROCHI_V2_RECEIVER:
     case USB_DEVICE_ID_RAZER_OROCHI_V2_BLUETOOTH:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_RECEIVER:
     case USB_DEVICE_ID_RAZER_PRO_CLICK_WIRED:
     case USB_DEVICE_ID_RAZER_VIPER_V2_PRO_WIRELESS:
@@ -2962,6 +2982,7 @@ static ssize_t razer_attr_read_led_brightness(struct device *dev, struct device_
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
@@ -3037,6 +3058,7 @@ static ssize_t razer_attr_write_led_brightness(struct device *dev, struct device
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
@@ -3192,6 +3214,7 @@ static ssize_t razer_attr_write_matrix_effect_wave_common(struct device *dev, st
     case USB_DEVICE_ID_RAZER_NAGA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_MAMBA_ELITE:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -3296,6 +3319,7 @@ static ssize_t razer_attr_write_matrix_effect_spectrum_common(struct device *dev
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
@@ -3677,6 +3701,7 @@ static ssize_t razer_attr_write_matrix_effect_static_common(struct device *dev, 
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_COBRA_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
@@ -4611,6 +4636,7 @@ static int razer_raw_event(struct hid_device *hdev, struct hid_report *report, u
     case USB_DEVICE_ID_RAZER_NAGA_CHROMA:
     case USB_DEVICE_ID_RAZER_BASILISK_V2:
     case USB_DEVICE_ID_RAZER_BASILISK_V3:
+    case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
     case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
     case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
@@ -4731,6 +4757,7 @@ static int razer_input_configured(struct hid_device *hdev,
         switch (hdev->product) {
         case USB_DEVICE_ID_RAZER_BASILISK_V2:
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRED:
         case USB_DEVICE_ID_RAZER_BASILISK_V3_PRO_WIRELESS:
         case USB_DEVICE_ID_RAZER_BASILISK_ULTIMATE_RECEIVER:
@@ -4966,6 +4993,7 @@ static int razer_mouse_probe(struct hid_device *hdev, const struct hid_device_id
             break;
 
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_poll_rate);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_dpi);
             CREATE_DEVICE_FILE(&hdev->dev, &dev_attr_dpi_stages);
@@ -5946,6 +5974,7 @@ static void razer_mouse_disconnect(struct hid_device *hdev)
             break;
 
         case USB_DEVICE_ID_RAZER_BASILISK_V3:
+        case USB_DEVICE_ID_RAZER_BASILISK_V3_35K:
             device_remove_file(&hdev->dev, &dev_attr_poll_rate);
             device_remove_file(&hdev->dev, &dev_attr_dpi);
             device_remove_file(&hdev->dev, &dev_attr_dpi_stages);
